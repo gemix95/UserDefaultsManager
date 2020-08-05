@@ -13,7 +13,7 @@ UserDefaultsManager uses generics type to save and retrieve all type of data:
 - **Codable**
 
 
-The only thing you have to do is to pass your data throght the ***UserDefaultsManager.shared***:
+The only thing you have to do is to pass your data throght the `UserDefaultsManager.shared`:
 
 # How to use it
 ## Example with Codable
