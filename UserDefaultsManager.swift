@@ -15,7 +15,7 @@ class UserDefaultsManager {
 
     func setValue<T: Codable>(key: Key, data: T) {
         let codableData = Storable(value: data)
-        guard let data = try? JSONEncoder().encode(codableData) else { return }
+        guard let data = try? JSONEncoder().encode(codableData.value) else { return }
         UserDefaults.standard.set(data, forKey: key.rawValue)
     }
 
