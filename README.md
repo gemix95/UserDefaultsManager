@@ -28,7 +28,11 @@ struct Person: Codable {
 let johnSmith = Person(name: "John", surname: "Smith", age: 30, married: true)
 
 // saving the Person model
-UserDefaultsManager.shared.setValue(key: .custom("john"), data: johnSmith)
+do {
+    try UserDefaultsManager.shared.setValue(key: .custom("john"), data: johnSmith)
+} catch {
+    print(error.localizedDescription)
+}
 
 // retrieving the Person model
 let personSaved = UserDefaultsManager.shared.getValue(.custom("john"), model: Person.self)
@@ -38,11 +42,19 @@ let personSaved = UserDefaultsManager.shared.getValue(.custom("john"), model: Pe
 ```swift
 // saving a String value
 let hello = "hello"
-UserDefaultsManager.shared.setValue(key: .custom("hello"), data: hello)
+do {
+    try UserDefaultsManager.shared.setValue(key: .custom("hello"), data: hello)
+} catch {
+    print(error.localizedDescription)
+}
 
 // saving an Int value
 let myAge = 24
-UserDefaultsManager.shared.setValue(key: .custom("myAge"), data: myAge)
+do { 
+    try UserDefaultsManager.shared.setValue(key: .custom("myAge"), data: myAge)
+} catch {
+    print(error.localizedDescription)
+}
 
 // retrieving the String value
 let helloSaved = UserDefaultsManager.shared.getValue(.custom("hello"), model: String.self)
